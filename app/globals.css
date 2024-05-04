@@ -6,28 +6,109 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
+  --primary-purple-color: hsla(254, 85%, 67%, 1);
+  --primary-green-color: hsla(173, 46%, 69%, 1);
+  --primary-red-color: hsla(0, 100%, 50%, 1);
+
+  --primary-black-color: hsla(0, 0%, 0%, 1);
+
+  --tertiary-white-color: hsla(0, 0%, 78%, 1);
+  --primary-white-color: hsla(0, 0%, 100%, 1);
+  --secondary-white-color: hsla(0, 0%, 96%, 1);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
+} */
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+  body {
+    @apply bg-primaryWhite text-primaryBlack;
+  }
+  input {
+    @apply border border-solid pl-7 placeholder:caption;
+  }
+  input:not(:focus) {
+    @apply border-tertiaryWhite;
+  }
+  input:focus {
+    @apply outline-primaryPurple;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .flex-center {
+    @apply flex items-center;
+  }
+  .flex-col-center {
+    @apply flex-center flex-col;
+  }
+  /* Typography */
+  .heading {
+    @apply font-bold text-7xl leading-[86px] text-center;
+  }
+  .title {
+    @apply font-bold leading-[58px] text-5xl;
+  }
+  .caption,
+  .body,
+  .error {
+    @apply leading-[22px];
+  }
+
+  .caption {
+    @apply font-medium text-lg;
+  }
+  .footer {
+    @apply text-sm leading-[17px];
+  }
+  .error {
+    @apply text-primaryRed;
+  }
+  /* Image */
+  .flag {
+    @apply w-[46px] h-[30px];
+  }
+  /* actions */
+  .base-transition {
+    @apply transition-opacity duration-300 ease-in-out;
+  }
+  .hovered-input {
+    @apply border border-solid border-primaryPurple;
+  }
+  .hovered-search-result {
+    @apply bg-secondaryWhite;
+  }
+  /* shadow */
+  .primary-shadow {
+    box-shadow: 4px 4px 4px 0px hsla(0, 0%, 0%, 0.02);
+    box-shadow: -4px -4px 4px 0px hsla(0, 0%, 0%, 0.02);
+  }
+  /* animation */
+  .shake {
+    animation: shake 1s ease-in-out infinite;
+  }
+  @keyframes shake {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    20%,
+    60%,
+    100% {
+      transform: translateY(-10px);
+    }
+    40%,
+    80% {
+      transform: translateY(10px);
+    }
   }
 }

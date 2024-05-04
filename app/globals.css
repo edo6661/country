@@ -12,6 +12,7 @@
   --primary-red-color: hsla(0, 100%, 50%, 1);
 
   --primary-black-color: hsla(0, 0%, 0%, 1);
+  --primary-slate-color: hsla(0, 0%, 32%, 1);
 
   --tertiary-white-color: hsla(0, 0%, 78%, 1);
   --primary-white-color: hsla(0, 0%, 100%, 1);
@@ -71,7 +72,10 @@
     @apply text-sm leading-[17px];
   }
   .error {
-    @apply text-primaryRed;
+    @apply text-primaryRed p-2;
+  }
+  .primary-underline {
+    @apply text-primaryPurple  border-b-primaryPurple border-b mr-1;
   }
   /* Image */
   .flag {
@@ -89,8 +93,8 @@
   }
   /* shadow */
   .primary-shadow {
-    box-shadow: 4px 4px 4px 0px hsla(0, 0%, 0%, 0.02);
-    box-shadow: -4px -4px 4px 0px hsla(0, 0%, 0%, 0.02);
+    box-shadow: 4px 4px 4px 0px hsla(0, 0%, 0%, 0.02),
+      -4px -4px 4px 0px hsla(0, 0%, 0%, 0.02);
   }
   /* animation */
   .shake {
@@ -110,5 +114,54 @@
     80% {
       transform: translateY(10px);
     }
+  }
+  /* card */
+  .card-shadow {
+    @apply bg-primaryWhite text-primaryBlack primary-shadow;
+  }
+}
+
+@layer base {
+  img {
+    @apply object-cover mt-3;
+  }
+}
+
+/* index page */
+
+/* country page */
+@layer components {
+  .container-country {
+    @apply p-24 space-y-12 min-h-[120vh];
+  }
+  .wrapper-country {
+    @apply flex flex-col gap-12;
+  }
+  .wrapper-country-second-section {
+    @apply flex flex-col gap-2;
+  }
+  .wrapper-country-section {
+    @apply sm:flex  gap-7;
+  }
+  .wrapper-country-second-section > div {
+    @apply flex-center gap-3;
+  }
+  .wrapper-country-section > .wrapper-latlong {
+    @apply p-7 card-shadow space-y-3 relative overflow-hidden w-[540px];
+  }
+  .wrapper-country-section > .wrapper-capital {
+    @apply card-shadow p-7  text-lg w-[540px];
+  }
+  .wrapper-country-sub-section {
+    @apply space-y-2 w-[540px];
+  }
+  .wrapper-capital > p > span {
+    @apply font-medium;
+  }
+  .hovered-country {
+    @apply absolute top-10 left-0  bg-primarySlate px-6 py-4 rounded-[10px] shadow-lg text-primaryWhite font-medium space-y-1;
+  }
+  .underline-country {
+    @apply primary-underline cursor-pointer;
   }
 }

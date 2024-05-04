@@ -18,6 +18,7 @@ const config: Config = {
       },
       backgroundColor: {
         primaryGreen: "var(--primary-green-color)",
+        primarySlate: "var(--primary-slate-color)",
       },
       colors: {
         secondaryWhite: "var(--secondary-white-color)",

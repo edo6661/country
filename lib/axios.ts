@@ -8,7 +8,7 @@ import { defaultAbortSignal } from "@/utils/defaultAbortSignal";
 // }
 
 const instance = axios.create({
-  baseURL: "https://restcountries.com/v3.1/name/",
+  baseURL: "https://restcountries.com/",
   method: "get",
   withCredentials: false,
   responseType: "json",

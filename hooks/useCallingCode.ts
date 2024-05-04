@@ -4,23 +4,23 @@ import { Country } from "@/types/country";
 import { errHandler } from "@/utils/errHandler";
 import { useQuery } from "@tanstack/react-query";
 
-export const useCountry = (q: string) => {
+export const useCallingCode = (q: string) => {
   const {
     isLoading,
     isError,
-    data: countries,
+    data: callingCode,
     error,
-  } = useQuery<Country[]>({
-    queryKey: ["search-country", q],
+  } = useQuery<CallingCode[]>({
+    queryKey: ["calling-code", q],
     queryFn: async () => {
       try {
-        return (await instance.get(`/v3.1/name/${q}`)).data;
+        return (await instance.get(`/v2/callingcode/${q}`)).data;
       } catch (err) {
-        errHandler(err, "Failed to fetch countries");
+        errHandler(err, "Failed to fetch calling code");
       }
     },
     enabled: !!q,
   });
 
-  return { isLoading, isError, countries, error };
+  return { isLoading, isError, callingCode, error };
 };

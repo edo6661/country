@@ -49,17 +49,16 @@ export default function Home() {
               "text-primaryPurple": focused
             })} />
           </div>
-          <div className={cn("bg-primaryWhite h-[228px] text-lg text-primaryBlack primary-shadow  absolute w-full")}>
-            <CardCountry
-              countries={countries!}
-              isLoading={isLoading}
-              isError={isError}
-              error={error}
-              q={
-                searchParams.get('q') || ""
-              }
-            />
-          </div>
+
+          <CardCountry
+            countries={countries!}
+            isLoading={isLoading}
+            isError={isError}
+            error={error}
+            q={
+              searchParams.get('q') || ""
+            }
+          />
         </div>
       </div>
 

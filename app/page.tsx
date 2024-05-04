@@ -1,16 +1,13 @@
 "use client"
 
 import { useCountry } from "@/hooks/useCountry";
-import Link from "next/link";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useRef, useState } from "react";
-import Search from 'mdi-react/MagnifyIcon'
+import { useSearchParams } from "next/navigation";
 import { cn } from "@/lib/cn";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import CardCountry from "./_components/CardCountry";
-import { useDebouncedCallback } from "use-debounce";
 import SearchCountry from "./_components/SearchCountry";
 import { robotoMono } from "@/utils/font";
+import { baseAllProps } from "@/lib/framer-motion";
 
 export default function Home() {
   const searchParams = useSearchParams();
@@ -20,7 +17,9 @@ export default function Home() {
 
 
   return (
-    <section className="min-h-[90vh] relative ">
+    <motion.section className="min-h-[90vh] relative "
+      {...baseAllProps}
+    >
       <div className="container-index">
         <h1 className={cn("heading", robotoMono.className)}>
           Country
@@ -36,6 +35,6 @@ export default function Home() {
           />
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

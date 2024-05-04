@@ -44,10 +44,12 @@ const CardCountry = (
     )
       // TODO CHANGE TO SKELETON LOADING
       : isLoading ?
-        <div className='absolute w-full h-full'>
+        <motion.div className='absolute w-full h-full'
+          {...baseVarProps}
+        >
           <Skeleton className='p-7 card-shadow  w-full h-full rounded-[10px] animate-bounce mt-10'
           />
-        </div>
+        </motion.div>
         : q !== "" &&
         <motion.p className="error card-shadow text-lg  absolute w-full rounded-[10px] animate-pulse"
           {...baseVarAppear}

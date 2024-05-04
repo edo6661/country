@@ -1,4 +1,4 @@
-import { baseTransition, baseVarAppear, baseVarProps } from '@/lib/framer-motion'
+import { baseAllProps } from '@/lib/framer-motion'
 import { AnimatePresence, motion } from 'framer-motion'
 import React from 'react'
 interface HoveredCountriesProps {
@@ -13,9 +13,7 @@ const HoveredCountries = (
       <AnimatePresence>
         {isOpen && (data && data.length > 0) && (
           <motion.div
-            variants={baseVarAppear}
-            {...baseVarProps}
-            {...baseTransition}
+            {...baseAllProps}
             className='hovered-country'
           >
             {

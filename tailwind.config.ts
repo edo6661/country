@@ -27,6 +27,7 @@ const config: Config = {
         primaryPurple: "var(--primary-purple-color)",
         primaryBlack: "var(--primary-black-color)",
         primaryRed: "var(--primary-red-color)",
+        muted: "var(--muted)",
       },
     },
   },

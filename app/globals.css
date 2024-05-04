@@ -13,6 +13,7 @@
 
   --primary-black-color: hsla(0, 0%, 0%, 1);
   --primary-slate-color: hsla(0, 0%, 32%, 1);
+  --muted: hsl(210 40% 96.1%)
 
   --tertiary-white-color: hsla(0, 0%, 78%, 1);
   --primary-white-color: hsla(0, 0%, 100%, 1);

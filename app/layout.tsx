@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { Roboto_Mono } from "next/font/google";
 import "./globals.css";
-import { robotoMono } from "@/utils/font";
+import { poppins, robotoMono } from "@/utils/font";
 import Providers from "@/components/Providers";
 
 
@@ -17,7 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body
+        className={poppins.className}
+      >
         <Providers>
           <main>
             {children}

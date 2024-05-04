@@ -46,6 +46,7 @@ const SpesificCountry = () => {
             currency={currency!}
           />
         )
+        // TODO change into loading skeleton
       ) : <p>Loading</p>}
 
     </section>

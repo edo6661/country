@@ -1,9 +1,16 @@
 import Button from '@/components/shared/Button'
+import { cn } from '@/lib/cn'
 import { baseTransition, baseVarAppear, baseVarProps } from '@/lib/framer-motion'
 import { Country } from '@/types/country'
+import { robotoMono } from '@/utils/font'
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
 import React, { useState } from 'react'
+
+interface CardSpesificCountryType extends Country {
+  callingCode: CallingCode[]
+  currency: Currency[]
+}
 
 const CardSpesificCountry = ({
   name,
@@ -15,15 +22,17 @@ const CardSpesificCountry = ({
   subregion,
   idd,
   currencies, callingCode, currency
-}: Country & { callingCode: CallingCode[], currency: Currency[] }) => {
+}: CardSpesificCountryType) => {
   const [isCcOpen, setIsCcOpen] = useState(false)
   const [isCurrencyOpen, setIsCurrencyOpen] = useState(false)
+
+
   return (
     <div >
       <div className="wrapper-country">
         <div className="wrapper-country-second-section">
           <div >
-            <h1 className='title'>
+            <h1 className={cn("title", robotoMono.className)}>
               {name.common}
             </h1>
             <Image

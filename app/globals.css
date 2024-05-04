@@ -32,7 +32,7 @@
     @apply bg-primaryWhite text-primaryBlack;
   }
   input {
-    @apply border border-solid pl-7 placeholder:caption;
+    @apply border border-solid pl-7 placeholder:caption h-[60px] rounded-[10px] w-full;
   }
   input:not(:focus) {
     @apply border-tertiaryWhite;
@@ -72,7 +72,7 @@
     @apply text-sm leading-[17px];
   }
   .error {
-    @apply text-primaryRed p-2;
+    @apply text-primaryRed p-7 !important;
   }
   .primary-underline {
     @apply text-primaryPurple  border-b-primaryPurple border-b mr-1;
@@ -128,6 +128,20 @@
 }
 
 /* index page */
+@layer components {
+  .container-index {
+    @apply absolute top-1/2 -translate-y-1/2 right-1/2 translate-x-1/2 space-y-10;
+  }
+  .container-index > .wrapper-index {
+    @apply w-[700px] space-y-10;
+  }
+  .wrapper-result-search {
+    @apply hover:bg-secondaryWhite transition-all duration-300 px-4 py-2;
+  }
+  .wrapper-result-search > a {
+    @apply w-full block;
+  }
+}
 
 /* country page */
 @layer components {

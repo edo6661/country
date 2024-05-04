@@ -1,31 +1,40 @@
 import { cn } from '@/lib/cn';
 import { Country } from '@/types/country';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import React from 'react'
 interface CardCountryProps {
   countries: Country[];
   isLoading: boolean;
   isError: boolean;
   error: Error | null;
-  q: string;
 
 }
 const CardCountry = (
-  { countries, isLoading, isError, error, q }: CardCountryProps
+  { countries, isLoading, isError, error }: CardCountryProps
 ) => {
+  const searchParams = useSearchParams();
+  const q = searchParams.get('q') || ""
+
+
   return (countries && countries.length > 0) ? (
-    <div className={cn("card-shadow text-lg  absolute w-full ")}>
+    <div className={cn("card-shadow text-lg  absolute w-full rounded-[10px] ")}>
       {
         countries.slice(0, 5).map(({ name }) =>
-          <div key={name.common} className=" hover:bg-secondaryWhite transition-all duration-300 px-4 py-2">
-            <Link href={`/${name.common}`} className='w-full block'>
+          <div key={name.common} className="wrapper-result-search">
+            <Link href={`/${name.common}`} >
               {name.common}
             </Link>
           </div>
         )
       }
     </div>
-  ) : isLoading ? <p className='p-2 card-shadow text-lg  absolute w-full'>Loading...</p> : q !== "" && <p className="error card-shadow text-lg  absolute w-full">No Data found</p>
+  )
+    // TODO CHANGE TO SKELETON LOADING
+    : isLoading ?
+      <p className='p-7 card-shadow text-lg  absolute w-full rounded-[10px] animate-bounce'>Loading...</p>
+      : q !== "" &&
+      <p className="error card-shadow text-lg  absolute w-full rounded-[10px] animate-pulse">No Data found</p>
 
 }
 

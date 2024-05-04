@@ -20,7 +20,7 @@ export default function Home() {
     params.set('q', q);
     q ? params.set('q', q) : params.delete('q');
     router.replace(`${pathname}?${params.toString()}`)
-  }, 100)
+  }, 300)
 
   const [focused, setFocused] = useState(true);
   const { isLoading, isError, countries, error } = useCountry(

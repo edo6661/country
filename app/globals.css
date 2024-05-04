@@ -120,6 +120,10 @@
   .card-shadow {
     @apply bg-primaryWhite text-primaryBlack primary-shadow;
   }
+  /* skeleton */
+  .big-skeleton {
+    @apply xl:min-w-[540px] lg:min-w-[420px] md:min-w-[320px] sm:min-w-[260px] min-w-[210px] h-[154px];
+  }
 }
 
 @layer base {
@@ -134,7 +138,7 @@
     @apply absolute top-1/2 -translate-y-1/2 right-1/2 translate-x-1/2 space-y-10;
   }
   .container-index > .wrapper-index {
-    @apply w-[700px] space-y-10;
+    @apply sm:w-[700px] space-y-10;
   }
   .wrapper-result-search {
     @apply hover:bg-secondaryWhite transition-all duration-300 px-4 py-2;
@@ -147,7 +151,7 @@
 /* country page */
 @layer components {
   .container-country {
-    @apply p-24 space-y-12 min-h-[120vh];
+    @apply py-24 px-12 space-y-12 min-h-[120vh];
   }
   .wrapper-country {
     @apply flex flex-col gap-12;
@@ -156,19 +160,19 @@
     @apply flex flex-col gap-2;
   }
   .wrapper-country-section {
-    @apply sm:flex  gap-7;
+    @apply sm:flex sm:space-y-0 space-y-4  gap-7;
   }
   .wrapper-country-second-section > div {
-    @apply flex-center gap-3;
+    @apply flex-center flex-wrap gap-3;
   }
   .wrapper-country-section > .wrapper-latlong {
-    @apply p-7 card-shadow space-y-3 relative overflow-hidden w-[540px];
+    @apply p-7 card-shadow space-y-3 relative overflow-hidden sm:w-[540px];
   }
   .wrapper-country-section > .wrapper-capital {
-    @apply card-shadow p-7  text-lg w-[540px];
+    @apply card-shadow p-7  text-lg sm:w-[540px] space-y-1;
   }
   .wrapper-country-sub-section {
-    @apply space-y-2 w-[540px];
+    @apply space-y-2 sm:w-[540px];
   }
   .wrapper-capital > p > span {
     @apply font-medium;

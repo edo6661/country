@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import React from 'react'
+import Skeleton from 'react-loading-skeleton';
 interface CardCountryProps {
   countries: Country[];
   isLoading: boolean;
@@ -43,9 +44,10 @@ const CardCountry = (
     )
       // TODO CHANGE TO SKELETON LOADING
       : isLoading ?
-        <motion.p className='p-7 card-shadow text-lg  absolute w-full rounded-[10px] animate-bounce'
-          {...baseVarAppear}
-        >Loading...</motion.p>
+        <div className='absolute w-full h-full'>
+          <Skeleton className='p-7 card-shadow  w-full h-full rounded-[10px] animate-bounce mt-10'
+          />
+        </div>
         : q !== "" &&
         <motion.p className="error card-shadow text-lg  absolute w-full rounded-[10px] animate-pulse"
           {...baseVarAppear}

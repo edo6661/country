@@ -1,6 +1,8 @@
-import type { Metadata } from "next";
 import "./globals.css";
-import { poppins, robotoMono } from "@/utils/font";
+import 'react-loading-skeleton/dist/skeleton.css'
+import type { Metadata } from "next";
+
+import { poppins } from "@/utils/font";
 import Providers from "@/components/Providers";
 
 

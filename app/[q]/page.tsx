@@ -8,6 +8,7 @@ import { getCallingCode } from '@/utils/getCallingCode'
 import { useCurrency } from '@/hooks/useCurrency'
 import { getCurrency } from '@/utils/getCurrency'
 import CardSpesificCountry from '../_components/CardSpesificCountry'
+import Skeleton from 'react-loading-skeleton'
 
 
 
@@ -47,7 +48,29 @@ const SpesificCountry = () => {
           />
         )
         // TODO change into loading skeleton
-      ) : <p>Loading</p>}
+      ) : (
+        <>
+          <div className='flex flex-col gap-2'>
+            <div className="flex-center gap-4">
+              <Skeleton className='min-w-[260px] h-[58px] bg-red-500' />
+              <Skeleton className='min-w-[46px] h-[30px]' />
+            </div>
+            <div className='flex-center flex-wrap gap-4'>
+              <Skeleton className='min-w-32 h-8' />
+              <Skeleton className='min-w-32 h-8' />
+              <Skeleton className='min-w-32 h-8' />
+            </div>
+          </div>
+          <div className='sm:flex-center gap-6'>
+            <Skeleton className='big-skeleton' />
+            <Skeleton className='big-skeleton' />
+          </div>
+          <div className='sm:flex-center gap-6'>
+            <Skeleton className='big-skeleton' />
+            <Skeleton className='big-skeleton' />
+          </div>
+        </>
+      )}
 
     </section>
   )

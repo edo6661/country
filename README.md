@@ -1,6 +1,6 @@
 ## Clone the project
 
-https://github.com/edo6661/country.git
+git clone https://github.com/edo6661/country.git
 
 ## Install the packages of the project
 
